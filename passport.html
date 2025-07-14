@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Processing Services | KATS UNEMPLOYMENT SOLUTIONS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse your existing styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color: rgb(40, 202, 7) ;
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid  rgb(40, 202, 7);
+            color:  rgb(40, 202, 7);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Service Hero Section */
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('kats17.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Service Details */
+        .service-details {
+            background-color: white;
+            padding: 60px 0;
+        }
+        
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .service-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefits-list {
+            margin: 30px 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        /* Passport Types */
+        .passport-types {
+            background-color: var(--secondary);
+            padding: 80px 0;
+        }
+        
+        .types-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .type-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .type-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .type-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .type-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 15px 0;
+        }
+        
+        /* Requirements Section */
+        .requirements-section {
+            padding: 80px 0;
+        }
+        
+        .requirements-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+        
+        .requirement-item:hover {
+            background-color: rgba(42, 91, 215, 0.05);
+        }
+        
+        .requirement-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        /* Process Timeline */
+        .process-section {
+            background-color: var(--secondary);
+            padding: 80px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .timeline-content:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 30px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content:after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content:after {
+            left: -12px;
+        }
+        
+        .timeline-step {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-step {
+            right: -20px;
+            top: 20px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-step {
+            left: -20px;
+            top: 20px;
+        }
+        
+        /* CTA Section */
+        .service-cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .service-cta .section-title {
+            color: white;
+        }
+        
+        .service-cta .section-title::after {
+            background-color: var(--accent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .service-hero {
+                padding: 120px 0 80px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline:before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content:after {
+                left: 19px !important;
+            }
+            
+            .timeline-step {
+                left: 11px !important;
+            }
+        }
+        
+        @media (max-width: 578px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="kats10.png" style="color: var(--primary);" width="100" height="100"></img>
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                   
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html"  STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="careers.html" class="active"  STYLE="color: rgb(252, 7, 7)">Careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQS</a></li>
+                    <li><a href="about.html" STYLE="color: rgb(7, 23, 245)">About</a></li>
+                    <li><a href="contact.html"  STYLE="color: rgb(40, 202, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Service Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>Passport Processing Services</h1>
+            <p>Fast, reliable, and hassle-free passport application and renewal services for Ugandan citizens. We handle the entire process so you don't have to wait in long queues.</p>
+            <a href="contact.html" class="btn btn-primary">Start Your Application</a>
+        </div>
+    </section>
+
+    <!-- Service Details Section -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2 class="section-title" style="color: RED;">Professional Passport Assistance</h2>
+                    <p>At KATS Unemployment Solutions, we simplify the passport application process. Our experts guide you through every step, ensuring your application meets all requirements for quick approval.</p>
+                    
+                    <div class="benefits-list">
+                        <h3>Why Choose Our Passport Services:</h3>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Expert Guidance</h4>
+                                <p>Navigate the passport application process with professionals</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Time-Saving</h4>
+                                <p>Avoid long queues and bureaucratic delays</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Document Review</h4>
+                                <p>Ensure your application is complete and error-free</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Status Updates</h4>
+                                <p>Regular updates on your application progress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="kats17.jpg" alt="Passport Processing Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; COLOR: RED;">Passport Requirements</h2>
+            <p class="section-subtitle" style="text-align: center;">Documents needed for passport application</p>
+            
+            <div class="requirements-list">
+                <div class="requirement-item">
+                    <div class="requirement-icon"><i class="fas fa-id-card"></i></div>
+                    <div>
+                        <h3>Original National ID</h3>
+                        <p>Valid Ugandan National Identification Card</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon"><i class="fas fa-birthday-cake"></i></div>
+                    <div>
+                        <h3>Birth Certificate</h3>
+                        <p>Original or certified copy of birth certificate</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon"><i class="fas fa-passport"></i></div>
+                    <div>
+                        <h3>Old Passport (if any)</h3>
+                        <p>For renewal applications only</p>
+                    </div>
+                </div>
+                <div class="requirement-item">
+                    <div class="requirement-icon"><i class="fas fa-camera"></i></div>
+                    <div>
+                        <h3>Passport Photos</h3>
+                        <p>Two recent colored passport-size photographs</p>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; color: RED;">Our Passport Processing Steps</h2>
+            <p class="section-subtitle" style="text-align: center;">Simple, transparent process from application to delivery</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-step">1</div>
+                    <div class="timeline-content">
+                        <h3>Initial Consultation</h3>
+                        <p>We assess your needs and explain the passport application process</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-step">2</div>
+                    <div class="timeline-content">
+                        <h3>Document Collection</h3>
+                        <p>We collect and verify all required documents from you</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-step">3</div>
+                    <div class="timeline-content">
+                        <h3>Application Submission</h3>
+                        <p>We submit your complete application to immigration authorities</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-step">4</div>
+                    <div class="timeline-content">
+                        <h3>Biometrics Capture</h3>
+                        <p>We schedule and accompany you for fingerprinting and photo capture</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-step">5</div>
+                    <div class="timeline-content">
+                        <h3>Process Monitoring</h3>
+                        <p>We track your application status with immigration officials</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-step">6</div>
+                    <div class="timeline-content">
+                        <h3>Passport Collection</h3>
+                        <p>We collect and deliver your passport upon approval</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2 class="section-title" style="color: redS;">Need a Passport Quickly?</h2>
+            <p class="section-subtitle">Let us handle the paperwork while you prepare for your journey</p>
+            <div style="margin-top: 40px;">
+                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Start Application</a>
+                <a href="tel:+256709787173" class="btn btn-primary"><i class="fas fa-phone"></i> Call Us: +256 752 300 572</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;">
+        <div class="container">
+             
+        <div class="container">
+             <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+            
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2025 KATS UNEMPLOYMENT SOLUTIONS UG. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - KUSUL AGENCIES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color: rgb(40, 202, 7);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Services Hero Section */
+        .services-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Kats14.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .services-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .services-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .services-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .services-intro h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .services-intro p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        /* Call to Action */
+        .services-cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .services-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .phone-number {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: inline-block;
+            background-color: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 50px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .services-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-intro h2 {
+                font-size: 2rem;
+            }
+            
+            .phone-number {
+                font-size: 1.4rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                 <img src="kats10.png" style="color: var(--primary);" width="100" height="100"></img>
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active" STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="carriers.html" class="active" STYLE="color: rgb(252, 7, 7)">careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQs</a></li>
+                    <li><a href="about.html" class="active" STYLE="color: rgb(7, 23, 245)">about</a></li>
+                    <li><a href="contact.html" STYLE="color: rgb(40, 202, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <br>
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="container services-hero-content">
+            <h1>OUR SERVICES</h1>
+            <p>"Empowering Your Business with Comprehensive Solutions"</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-intro">
+                <h2>Discover Our Range of Services Today!</h2>
+                <p style="color:rgb(40, 202, 7)">We offer comprehensive solutions to meet all your business and personal needs. Our professional team is dedicated to providing exceptional service and support.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Job Placement -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Job Placement">
+                    </div>
+                    <div class="service-content">
+                        <h3>Job Placement</h3>
+                        <p>Connecting talented individuals with their dream careers through our extensive network of employers across various industries.</p>
+                        <a href="READ MORE .html" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+                
+                <!-- URSB Documents -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="kats15.jpg" alt="URSB Documents">
+                    </div>
+                    <div class="service-content">
+                        <h3>URSB Documents</h3>
+                        <p>Comprehensive business registration services including company incorporation, annual returns filing, and legal documentation.</p>
+                        <a href="BUSINESS REGISTRATON.html" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+                
+                <!-- URA Services -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="kats14.jpg" alt="URA Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>INTERNSHIP</h3>
+                        <p>Tax registration, compliance services, TIN applications, and all Uganda Revenue Authority related services.</p>
+                        <a href="INTERNSHIP.html" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+                
+                <!-- KCCA Registration -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="kats13.jpg" alt="KCCA Registration">
+                    </div>
+                    <div class="service-content">
+                        <h3>HR MANAGEMENT</h3>
+                        <p>Business licensing and registration services with Kampala Capital City Authority for all commercial operations.</p>
+                        <a href="HR MANAGEMENT.html" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+                
+                <!-- Branding Placement -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="kats16.jpg" alt="Branding Placement">
+                    </div>
+                    <div class="service-content">
+                        <h3>BRANDING AND GRAPHICS DESIGN SERVICES</h3>
+                        <p>Strategic marketing and advertising solutions to enhance your brand visibility and market presence.</p>
+                        <a href="graphic.html" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+                
+                <!-- Passport Processing -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="kats17.jpg" alt="Passport Processing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Passport Processing</h3>
+                        <p>Efficient processing of passport applications and immigration services with guaranteed timely delivery.</p>
+                        <a href="passport.html" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+                
+                <!-- Digital Marketing -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital Marketing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Digital Marketing</h3>
+                        <p>Comprehensive digital strategies including social media management, content creation, and online advertising.</p>
+                        <a href="marketing .html" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+                
+                
+  <div class="service-card">
+                    <div class="service-image">
+                        <img src="kats18.jpg" alt="Web Development">
+                    </div>
+                    <div class="service-content">
+                        <h3>IT SOLUTIONS & WEB DEVELOPMENT</h3>
+                        <p>Custom website design and development tailored to your business needs with responsive designs.</p>
+                        <a href="IT SOLUTIONS.html" class="btn btn-primary">READ MORE</a>
+                        
+                    
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+<section class="services-cta">
+    <div class="container">
+        <h2>Call Us Now</h2>
+        <div class="phone-number">
+            <i class="fas fa-phone"></i> 
+            <a href="tel:+256709787173" style="text-decoration: none; color: inherit;">+256 752 300 572</a>
+        </div>
+        <p>Our team is available 24/7 to answer your questions and provide expert guidance.</p>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+    </div>
+</section>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUSUL AGENCIES</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Social Links Styling */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #fff;
+            background: #3a3a3a;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #007bff;
+            transform: translateY(-3px);
+        }
+
+        /* Go Up Button Styling */
+        .go-up-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        .go-up-btn.show {
+            display: flex;
+        }
+
+        /* Add your existing styles below */
+        /* ... your existing CSS ... */
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML content here -->
+
+    <footer>
+        
+             
+        <div class="container">
+             <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+            
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+            
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https:https://www.facebook.com/profile.php?id=61553521155894" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/katsunempsolnug" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/Kusul_agencies_ug_ltd" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/company/kusulagenciesugandaltd" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://tiktok.com/@katsunemploymentsolns" target="_blank" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://whatsapp.com/channel/0029Vb5vXdw47XeGBPJdcy31" target="_blank" title="WhatsApp Channel">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://jiji.ng/shop/Kusulagenciesugltd@gmail.com" target="_blank" title="Jiji">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="mailto:kusulagenciesugltd@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <!-- Copyright Text -->
+            <p>&copy; 2025 KATS Unemployment Solutions <p> All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Go Up Button -->
+    <button id="goUpBtn" class="go-up-btn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Animate stats counting
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + '+';
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Start animations when stats section is in view
+        const statsSection = document.querySelector('.stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue('successfulCandidates', 0, 15000, 2000);
+                    animateValue('partneredCompanies', 0, 3000, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function goToSlide(n) {
+            showSlide(n);
+        }
+        
+        // Auto slide change every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Go Up Button functionality
+        const goUpBtn = document.getElementById('goUpBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                goUpBtn.classList.add('show');
+            } else {
+                goUpBtn.classList.remove('show');
+            }
+        });
+        
+        goUpBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

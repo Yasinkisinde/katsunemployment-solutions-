@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Services | KATS UNEMPLOYMENT SOLUTIONS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse your existing styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color:  rgb(40, 202, 7);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Service Hero Section */
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Service Details */
+        .service-details {
+            background-color: white;
+            padding: 60px 0;
+        }
+        
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .service-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefits-list {
+            margin: 30px 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: var(--secondary);
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            position: relative;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        /* Strategy Process */
+        .process-section {
+            padding: 80px 0;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step:not(:last-child):after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+        
+        /* Platforms Section */
+        .platforms-section {
+            background-color: var(--secondary);
+            padding: 80px 0;
+        }
+        
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .platform-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .platform-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* CTA Section */
+        .service-cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .service-cta .section-title {
+            color: white;
+        }
+        
+        .service-cta .section-title::after {
+            background-color: var(--accent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+            
+            .process-step {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .service-hero {
+                padding: 120px 0 80px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 578px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="kats10.png" style="color: var(--primary);" width="100" height="100"></img>
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html"  STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="careers.html" class="active"  STYLE="color: rgb(252, 7, 7)">Careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQS</a></li>
+                    <li><a href="about.html" STYLE="color: rgb(7, 23, 245)">About</a></li>
+                    <li><a href="contact.html"  STYLE="color: rgb(40, 202, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Service Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>Digital Marketing Services</h1>
+            <p>Grow your business online with our data-driven digital marketing strategies. We help Ugandan businesses increase visibility, generate leads, and boost sales through targeted online campaigns.</p>
+            <a href="contact.html" class="btn btn-primary">Get Your Free Marketing Audit</a>
+        </div>
+    </section>
+
+    <!-- Service Details Section -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2 class="section-title">Results-Driven Digital Marketing</h2>
+                    <p>At KATS Unemployment Solutions, we create customized digital marketing strategies that deliver measurable results. Our team combines creativity with analytics to build campaigns that connect with your target audience and drive business growth.</p>
+                    
+                    <div class="benefits-list">
+                        <h3>Why Our Digital Marketing Works:</h3>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Local Market Expertise</h4>
+                                <p>Strategies tailored for the Ugandan digital landscape</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Data-Backed Approach</h4>
+                                <p>Campaigns driven by analytics and performance metrics</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Multi-Channel Strategies</h4>
+                                <p>Integrated campaigns across all relevant digital platforms</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Transparent Reporting</h4>
+                                <p>Regular performance reports with clear insights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital Marketing Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Digital Marketing Services -->
+    <section class="service-details" style="background-color: var(--secondary);">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Our Digital Marketing Services</h2>
+            <p class="section-subtitle" style="text-align: center;">Comprehensive solutions to grow your online presence</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Search Engine Optimization (SEO)</h3>
+                    <p>Improve your website's visibility in search results and attract organic traffic</p>
+                </div>
+                <div class="service-card">
+                    <h3>Social Media Marketing</h3>
+                    <p>Engage your audience and build brand loyalty on Facebook, Instagram, and more</p>
+                </div>
+                <div class="service-card">
+                    <h3>Pay-Per-Click Advertising</h3>
+                    <p>Targeted ads on Google, Facebook, and other platforms for immediate results</p>
+                </div>
+                <div class="service-card">
+                    <h3>Content Marketing</h3>
+                    <p>Valuable content that attracts, engages, and converts your target audience</p>
+                </div>
+                <div class="service-card">
+                    <h3>Email Marketing</h3>
+                    <p>Nurture leads and retain customers through strategic email campaigns</p>
+                </div>
+                <div class="service-card">
+                    <h3>Web Analytics</h3>
+                    <p>Track performance and optimize your digital marketing efforts</p>
+                </div>
+                <div class="service-card">
+                    <h3>Influencer Marketing</h3>
+                    <p>Leverage local influencers to promote your brand authentically</p>
+                </div>
+                <div class="service-card">
+                    <h3>Reputation Management</h3>
+                    <p>Monitor and improve your online reputation and customer reviews</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Digital Marketing Impact</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">How our strategies transform businesses</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">3-5x</div>
+                    <p>Average increase in website traffic</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40%</div>
+                    <p>Higher conversion rates for our clients</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">70%</div>
+                    <p>Reduction in customer acquisition costs</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <p>Ongoing campaign monitoring and optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Strategy Process -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Our Marketing Process</h2>
+            <p class="section-subtitle" style="text-align: center;">A proven approach to digital success</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-search"></i></div>
+                    <h3>Research & Analysis</h3>
+                    <p>Understanding your business, competitors, and target audience</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-chess"></i></div>
+                    <h3>Strategy Development</h3>
+                    <p>Creating a customized digital marketing plan</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Implementation</h3>
+                    <p>Executing campaigns across selected channels</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Monitoring</h3>
+                    <p>Tracking performance and making adjustments</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Optimization</h3>
+                    <p>Continuously improving campaign performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms We Work With -->
+    <section class="platforms-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Platforms We Specialize In</h2>
+            <p class="section-subtitle" style="text-align: center;">Maximizing results across all digital channels</p>
+            
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-google"></i></div>
+                    <h3>Google Ads</h3>
+                    <p>Search, Display, and YouTube advertising</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-facebook"></i></div>
+                    <h3>Facebook & Instagram</h3>
+                    <p>Targeted social media campaigns</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-linkedin"></i></div>
+                    <h3>LinkedIn</h3>
+                    <p>B2B marketing and professional networking</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-twitter"></i></div>
+                    <h3>Twitter</h3>
+                    <p>Real-time engagement and promotions</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-tiktok"></i></div>
+                    <h3>TikTok</h3>
+                    <p>Viral content and younger audience targeting</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email Platforms</h3>
+                    <p>Mailchimp, Constant Contact, and more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2 class="section-title">Ready to Grow Your Business Online?</h2>
+            <p class="section-subtitle">Let's create a digital marketing strategy that delivers real results</p>
+            <div style="margin-top: 40px;">
+                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Get Started Today</a>
+                <a href="tel:+256709787173" class="btn btn-primary"><i class="fas fa-phone"></i> Call Us: +256 752 300 572</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;">
+        <div class="container">
+            
+        <div class="container">
+             <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+            
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+           
+            <p style="margin-top: 20px;">&copy; 2023 KATS UNEMPLOYMENT SOLUTIONS UG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+
+        // Animate stats counting
+        function animateStats() {
+            const statElements = document.querySelectorAll('.stat-number');
+            const stats = [3.5, 40, 70]; // Actual values to count to
+            
+            statElements.forEach((el, index) => {
+                if (index < 3) { // Only animate first three stats
+                    let start = 0;
+                    const end = stats[index];
+                    const duration = 2000;
+                    let startTimestamp = null;
+                    
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                        const value = Math.floor(progress * end);
+                        el.textContent = index === 0 ? value.toFixed(1) + 'x' : value + '%';
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        }
+                    };
+                    
+                    window.requestAnimationFrame(step);
+                }
+            });
+        }
+
+        // Trigger animation when stats section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>

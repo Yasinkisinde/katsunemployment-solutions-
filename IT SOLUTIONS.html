@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Solutions | KATS UNEMPLOYMENT SOLUTIONS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse your existing styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color:  rgb(40, 202, 7);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid  rgb(40, 202, 7);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Service Hero Section */
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Service Details */
+        .service-details {
+            background-color: white;
+            padding: 60px 0;
+        }
+        
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .service-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefits-list {
+            margin: 30px 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: var(--secondary);
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            position: relative;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            background-color: var(--secondary);
+            padding: 80px 0;
+        }
+        
+        .tech-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .tech-item {
+            text-align: center;
+            width: 120px;
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .service-cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .service-cta .section-title {
+            color: white;
+        }
+        
+        .service-cta .section-title::after {
+            background-color: var(--accent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .service-hero {
+                padding: 120px 0 80px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 578px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="kats10.png" style="color: var(--primary);" width="100" height="100"></img>
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                   
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html"  STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="careers.html" class="active"  STYLE="color: rgb(252, 7, 7)">Careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQS</a></li>
+                    <li><a href="about.html" STYLE="color: rgb(7, 23, 245)">About</a></li>
+                    <li><a href="contact.html"  STYLE="color: rgb(40, 202, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Service Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>WEB DEVELOPMENT</h1>
+            <p>Transform your business with our cutting-edge technology services. From custom software development to IT infrastructure management, we provide end-to-end solutions tailored to your unique needs.</p>
+            <a href="contact.html" class="btn btn-primary">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Service Details Section -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2 class="section-title" style="COLOR: RED">Your Complete IT Partner</h2>
+                    <p>At KATS Unemployment Solutions, we deliver innovative technology solutions that drive business growth. Our team of certified professionals combines technical expertise with industry knowledge to provide reliable, scalable, and secure IT services.</p>
+                    
+                    <div class="benefits-list">
+                        <h3>Why Choose Our IT Solutions:</h3>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Full-Service Approach</h4>
+                                <p>From strategy to implementation and support - we handle all your IT needs</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Industry-Specific Solutions</h4>
+                                <p>Customized technology solutions designed for your specific business sector</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>24/7 Support</h4>
+                                <p>Round-the-clock technical support to keep your business running smoothly</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Cost-Effective</h4>
+                                <p>Maximize your IT budget with our efficient and scalable solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="IT Solutions Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our IT Services -->
+    <section class="service-details" style="background-color: var(--secondary);">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; COLOR: RED;" >Our IT Services</h2>
+            <p class="section-subtitle" style="text-align: center;">Comprehensive technology solutions for businesses of all sizes</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Software Development</h3>
+                    <p>Tailored applications designed to streamline your business processes and improve efficiency.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Web Development</h3>
+                    <p>Responsive, user-friendly websites and web applications that drive engagement and conversions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Mobile App Development</h3>
+                    <p>iOS and Android applications to connect with your customers on their preferred devices.</p>
+                </div>
+                <div class="service-card">
+                    <h3>IT Infrastructure Management</h3>
+                    <p>Complete setup, maintenance, and optimization of your network and hardware systems.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cloud Solutions</h3>
+                    <p>Migration, management, and optimization of cloud-based services and storage solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cybersecurity Services</h3>
+                    <p>Comprehensive protection against digital threats with advanced security measures.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Database Management</h3>
+                    <p>Design, implementation, and maintenance of efficient database systems.</p>
+                </div>
+                <div class="service-card">
+                    <h3>IT Consulting</h3>
+                    <p>Strategic guidance to align your technology with business objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; COLOR:RED ;">Our Technology Stack</h2>
+            <p class="section-subtitle" style="text-align: center;">We work with cutting-edge technologies to deliver robust solutions</p>
+            
+            <div class="tech-icons">
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-html5"></i></div>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-css3-alt"></i></div>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-js"></i></div>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-react"></i></div>
+                    <span>React</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-node-js"></i></div>
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-python"></i></div>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fas fa-database"></i></div>
+                    <span>SQL</span>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon"><i class="fab fa-aws"></i></div>
+                    <span>AWS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="service-details">
+        <div class="container">
+            <h2 class="section-title" style="COLOR: RED">Our Development Process</h2>
+            <p>We follow a proven methodology to ensure successful project delivery and maximum value for your investment.</p>
+            
+            <div class="benefits-list" style="margin-top: 40px;">
+                <div class="benefit-item">
+                    <div class="benefit-icon">1</div>
+                    <div>
+                        <h4>Requirement Analysis</h4>
+                        <p>Detailed discussions to understand your business needs and technical requirements</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">2</div>
+                    <div>
+                        <h4>Solution Design</h4>
+                        <p>Architecting the optimal technology solution with detailed specifications</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">3</div>
+                    <div>
+                        <h4>Development</h4>
+                        <p>Agile development process with regular milestones and deliverables</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">4</div>
+                    <div>
+                        <h4>Quality Assurance</h4>
+                        <p>Rigorous testing to ensure reliability, security, and performance</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">5</div>
+                    <div>
+                        <h4>Deployment</h4>
+                        <p>Smooth implementation and integration with your existing systems</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">6</div>
+                    <div>
+                        <h4>Support & Maintenance</h4>
+                        <p>Ongoing technical support and system enhancements</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Business?</h2>
+            <p class="section-subtitle">Let's discuss how our IT solutions can drive your digital transformation</p>
+            <div style="margin-top: 40px;">
+                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Request a Consultation</a>
+                <a href="tel:+256709787173" class="btn btn-primary"><i class="fas fa-phone"></i> Call Us: +256 752 300 752</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;">
+        <div class="container">
+              
+        <div class="container">
+             <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+            
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+            
+            <p style="margin-top: 20px;">&copy; 2023 KATS UNEMPLOYMENT SOLUTIONS UG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

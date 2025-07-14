@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Placement Services | KATS UNEMPLOYMENT SOLUTIONS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reuse your existing styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color: rgb(40, 202, 7);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Service Hero Section */
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('kats6.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Service Details */
+        .service-details {
+            background-color: white;
+            padding: 60px 0;
+        }
+        
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .service-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .service-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .benefits-list {
+            margin: 30px 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--secondary);
+            padding: 80px 0;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .step-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* CTA Section */
+        .service-cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .service-cta .section-title {
+            color: white;
+        }
+        
+        .service-cta .section-title::after {
+            background-color: var(--accent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .service-hero {
+                padding: 120px 0 80px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 578px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="kats10.png" style="color: var(--primary);" width="100" height="100"></img>
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                   
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html"  STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="careers.html" class="active"  STYLE="color: rgb(252, 7, 7)">Careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQS</a></li>
+                    <li><a href="about.html" STYLE="color: rgb(7, 23, 245)">About</a></li>
+                    <li><a href="contact.html"  STYLE="color: rgb(40, 202, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Service Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>Job Placement Services</h1>
+            <p>Connecting top talent with leading employers across Uganda and beyond. Our comprehensive job placement services help candidates find their dream jobs while assisting employers in finding the perfect fit for their teams.</p>
+            <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Service Details Section -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2 class="section-title">Professional Job Placement</h2>
+                    <p>At KATS Unemployment Solutions, we specialize in matching qualified candidates with the right employment opportunities. Our job placement services are designed to streamline the hiring process for both job seekers and employers, ensuring successful long-term placements.</p>
+                    
+                    <div class="benefits-list">
+                        <h3>Why Choose Our Job Placement Services:</h3>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Extensive Network</h4>
+                                <p>Access to a wide range of employers across various industries in Uganda and international markets</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Personalized Approach</h4>
+                                <p>One-on-one career counseling and personalized job matching based on skills and preferences</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Industry Expertise</h4>
+                                <p>Specialized knowledge of various sectors including IT, healthcare, education, hospitality, and more</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4>Post-Placement Support</h4>
+                                <p>Continued follow-up to ensure successful integration and job satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Job Placement Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Our Job Placement Process</h2>
+            <p class="section-subtitle" style="text-align: center;">A streamlined approach to successful employment matches</p>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3> Profile Creation</h3>
+                    <p> Create a detailed professional profile highlighting your skills, experience, and career aspirations.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Skills Assessment</h3>
+                    <p>Undergo a comprehensive skills evaluation to identify your strengths and areas for professional development.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Career Counseling</h3>
+                    <p>Receive personalized career guidance from our experienced consultants to refine your job search strategy.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Job Matching</h3>
+                    <p>We match your profile with suitable job openings from our extensive network of employer partners.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Interview Preparation</h3>
+                    <p>Get expert coaching on interview techniques, presentation skills, and professional etiquette.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3>Placement & Follow-up</h3>
+                    <p>Successful job placement with ongoing support during your initial employment period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section class="service-details">
+        <div class="container">
+            <h2 class="section-title">Industries We Serve</h2>
+            <p>Our job placement services cover a wide range of industries, connecting talented professionals with leading employers in these sectors:</p>
+            
+            <div class="benefits-list" style="margin-top: 40px;">
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-briefcase"></i></div>
+                    <div>
+                        <h4>Corporate & Office Jobs</h4>
+                        <p>Administrative, management, accounting, and executive positions across various industries</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div>
+                        <h4>Information Technology</h4>
+                        <p>Software developers, IT support, network administrators, and other tech-related roles</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-user-tie"></i></div>
+                    <div>
+                        <h4>Professional Services</h4>
+                        <p>Legal, consulting, marketing, and other professional service roles</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-hotel"></i></div>
+                    <div>
+                        <h4>Hospitality & Tourism</h4>
+                        <p>Hotel staff, tour guides, restaurant personnel, and other hospitality roles</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <h4>Education</h4>
+                        <p>Teachers, administrators, and support staff for schools and educational institutions</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div>
+                        <h4>Healthcare</h4>
+                        <p>Medical professionals, nurses, technicians, and healthcare support staff</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2 class="section-title">Ready to Advance Your Career?</h2>
+            <p class="section-subtitle">Let us help you find the perfect job opportunity tailored to your skills and aspirations</p>
+            <div style="margin-top: 40px;">
+                <a href="Form submit.html" class="btn btn-outline" style="border-color: white; color: white;">Register Now</a>
+                <a href="tel:+256759263158" class="btn btn-primary"><i class="fas fa-phone"></i> Call Us: +256 709 787 173</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;">
+         
+        <div class="container">
+             <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+            
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+            <p style="margin-top: 20px;">&copy; 2023 KATS UNEMPLOYMENT SOLUTIONS UG. All rights reserved.</p>
+        </div>
+    </footer>
+
+   
+</body>
+</html>
