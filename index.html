@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECH CONNECT AGENCIES | IT Recruitment & Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color: rgb(40, 202, 7);
+            color: ;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid rgb(40, 202, 7);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Slider Section */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+        
+        .slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .slide p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--light);
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--light);
+            border: none;
+            font-size: 2rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slider-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .slider-arrow.prev {
+            left: 20px;
+        }
+        
+        .slider-arrow.next {
+            right: 20px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: var(--light);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-title {
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        /* Go Up Button */
+        .go-up-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .go-up-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .go-up-btn.show {
+            display: flex;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .slide h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .slide h1 {
+                font-size: 2.2rem;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 578px) {
+            .slide h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            .slider-arrow {
+                font-size: 1.5rem;
+                padding: 5px 10px;
+            }
+            
+            .go-up-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                
+                    
+                <img src="kats10.png" style="color: var(--primary);" width="100" height="100"></img>
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="services.html" STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="carriers.html"STYLE="color: rgb(252, 7, 7)">Careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQS</a></li>
+                    <li><a href="about.html" STYLE="color: rgb(7, 23, 245)">About</a></li>
+                    <li><a href="contact.html" STYLE="color: rgb(40, 202, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   <!-- Hero Slider Section -->
+<section class="hero-slider" id="home">
+    <!-- Slide 1 - Employment Solutions -->
+    <div class="slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Kats6.jpg');">
+        <div class="container">
+            <div class="slide-content">
+                <h1>EMPLOYMENT SOLUTIONS</h1>
+                <p>Get the most reliable and convenient solutions when it comes to employment</p>
+                <div class="hero-buttons">
+                    <a href="employer.html" class="btn btn-primary">POST A JOB</a>
+                    <a href="Form submit.html" class="btn btn-outline">GET A JOB</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 2 - IT Solutions -->
+    <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80');">
+        <div class="container">
+            <div class="slide-content">
+                <h1>IT SOLUTIONS</h1>
+                <p>Smarter IT solutions for a smarter world</p>
+                <div class="hero-buttons">
+                    <a href="about.html" class="btn btn-primary">View Solutions</a>
+                    <a href="carriers.html" class="btn btn-outline">Find Jobs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 3 - Business Consultancy -->
+    <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('kats13.jpg');">
+        <div class="container">
+            <div class="slide-content">
+                <h1>BUSINESS CONSULTANCY</h1>
+                <p>Expert Guidance for Your Business</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Consult Now</a>
+                    <a href="services.html" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+   
+    
+    <!-- Slider Navigation -->
+    <button class="slider-arrow prev" onclick="prevSlide()">&#10094;</button>
+    <button class="slider-arrow next" onclick="nextSlide()">&#10095;</button>
+    
+    <div class="slider-nav">
+        <div class="slider-dot active" onclick="goToSlide(0)"></div>
+        <div class="slider-dot" onclick="goToSlide(1)"></div>
+        <div class="slider-dot" onclick="goToSlide(2)"></div>
+    </div>
+</section>
+
+<style>
+    /* CSS Fixes */
+    .hero-buttons {
+        position: relative;
+        z-index: 1000;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .hero-buttons .btn {
+        cursor: pointer;
+        position: relative;
+        padding: 12px 24px;
+        text-decoration: none;
+    }
+    
+    .slide-content {
+        position: relative;
+        z-index: 100;
+    }
+</style>
+
+<script>
+    // JavaScript Fixes
+    document.addEventListener('DOMContentLoaded', function() {
+        // Make sure slider functions exist
+        if (typeof prevSlide !== 'function') {
+            window.prevSlide = function() {
+                // Your existing prevSlide implementation
+                let current = document.querySelector('.slide.active');
+                let prev = current.previousElementSibling || 
+                          document.querySelector('.slide:last-child');
+                current.classList.remove('active');
+                prev.classList.add('active');
+                updateDots();
+            };
+        }
+        
+        if (typeof nextSlide !== 'function') {
+            window.nextSlide = function() {
+                // Your existing nextSlide implementation
+                let current = document.querySelector('.slide.active');
+                let next = current.nextElementSibling || 
+                          document.querySelector('.slide:first-child');
+                current.classList.remove('active');
+                next.classList.add('active');
+                updateDots();
+            };
+        }
+        
+        if (typeof goToSlide !== 'function') {
+            window.goToSlide = function(index) {
+                let slides = document.querySelectorAll('.slide');
+                document.querySelector('.slide.active').classList.remove('active');
+                slides[index].classList.add('active');
+                updateDots();
+            };
+        }
+        
+        function updateDots() {
+            let slides = document.querySelectorAll('.slide');
+            let dots = document.querySelectorAll('.slider-dot');
+            let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+            
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+    });
+</script>
+    
+    
+    
+    
+</section>
+ 
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stat-number" id="successfulCandidates">0</div>
+                    <div class="stat-title">Successful Candidates</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-number" id="partneredCompanies">0</div>
+                    <div class="stat-title">Partnered Companies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-title">Job Offers Daily</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="sliding-gallery">
+  <h2>Our Gallery</h2>
+  <div class="gallery-container">
+    <div class="gallery-track">
+      <!-- Image 1 -->
+      <div class="gallery-slide">
+        <img src="driver.jpg" alt="Description 1">
+      </div>
+      <!-- Image 2 -->
+      <div class="gallery-slide">
+        <img src="delivery.jpg" alt="Description 2">
+      </div>
+        
+        
+           <!-- Image 2 -->
+      <div class="gallery-slide">
+        <img src="nurse (1).png" alt="Description 2">
+      </div>
+        
+               <!-- Image 2 -->
+      <div class="gallery-slide">
+        <img src="bar.jpg" alt="Description 4">
+      </div>
+        
+             
+  
+    </div>
+  </div>
+</section>
+
+<style>
+  .sliding-gallery {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    overflow: hidden;
+  }
+  
+  .sliding-gallery h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .gallery-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .gallery-track {
+    display: flex;
+    height: 300px; /* Adjust height as needed */
+    transition: transform 0.5s ease;
+  }
+  
+  .gallery-slide {
+    min-width: 100%;
+    position: relative;
+  }
+  
+  .gallery-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .gallery-track {
+      height: 200px; /* Smaller height on mobile */
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.gallery-track');
+    const slides = document.querySelectorAll('.gallery-slide');
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    
+    // Clone first slide and append to end for seamless looping
+    const firstClone = slides[0].cloneNode(true);
+    track.appendChild(firstClone);
+    
+    function slideToNext() {
+      currentIndex++;
+      track.style.transition = 'transform 0.5s ease';
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // When we reach the clone, reset without animation
+      if (currentIndex === slideCount) {
+        setTimeout(() => {
+          track.style.transition = 'none';
+          currentIndex = 0;
+          track.style.transform = 'translateX(0)';
+        }, 500);
+      }
+    }
+    
+    // Auto-slide every 3 seconds (adjust as needed)
+    setInterval(slideToNext, 3000);
+    
+    // Pause on hover
+    track.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+    
+    track.addEventListener('mouseleave', () => {
+      slideInterval = setInterval(slideToNext, 3000);
+    });
+    
+    let slideInterval = setInterval(slideToNext, 3000);
+  });
+</script>
+    
+    
+ 
+    <!-- Add this section below the stats section in your HTML -->
+<section class="about-agency" style="background-color: #ffffff; padding: 80px 0;">
+    <div class="container">
+        <div class="section-title" style="animation: fadeInUp 1s ease-out; color: rgb(7, 23, 245)">KATS UNEMPLOYMENT SOLUTIONS</div>
+        <p class="section-subtitle" style="animation: fadeInUp 1s ease-out 0.2s forwards; opacity: 0;">Kats unemployment solutions Spans across a wide broadband of Services</p>
+        
+        <div style="max-width: 800px; margin: 0 auto; animation: fadeInUp 1s ease-out 0.4s forwards; opacity: 0;">
+            <p style="margin-bottom: 20px; font-size: 1.1rem; transition: transform 0.3s ease;">
+                Kats unemployment solutions is a leading company that provides a range of services including job placement, IT solutions, passport processing, business registration and many others since 2019. The company has been connecting job seekers with their dream jobs and helping businesses get legal documents of operating to grow. With our vast experience in the industry, Kats unemployment solutions has built a reputation for excellence, professionalism, and dedication to our clients. We understand the challenges that individuals and businesses face when it comes to finding the right job, recruiting the best candidates, developing efficient IT solutions, URA & URSB services.
+            </p>
+            
+            <div style="margin-top: 30px;">
+                <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>JOB PLACEMENTS</span>
+                </div>
+                <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>URSB DOCUMENTS</span>
+                </div>
+                <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>INTERNSHIP PLACEMENTS</span>
+                </div>
+                <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>HR MANAGEMENT</span>
+                    </div>  
+                
+                
+                <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>BRANDING AND GRAPHIC DESIGN SERVICES</span>
+                </div>
+            
+
+    
+    
+    
+      <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>DIGITAL MARKETING</span>
+                </div>
+
+    
+    
+    
+      <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>INTERNSHIP SRVICES</span>
+                </div>
+            
+
+    
+    
+      <div class="service-item" style="display: flex; align-items: center; margin-bottom: 15px; padding: 10px; border-radius: 5px; transition: all 0.3s ease;">
+                    <span style="color: #2a5bd7; margin-right: 10px; transition: transform 0.3s ease;">✅</span>
+                    <span>IT SOLUTIONS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+   
+<style>
+    /* Add these keyframes to your existing style section */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Hover effects */
+    .service-item:hover {
+        background-color: rgba(42, 91, 215, 0.05);
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .service-item:hover span:first-child {
+        transform: scale(1.2);
+    }
+    
+    .about-agency p:hover {
+        transform: scale(1.01);
+    }
+</style>
+
+<script>
+    // Add this to your existing script section to animate on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const aboutSection = document.querySelector('.about-agency');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.section-title').style.animation = 'fadeInUp 1s ease-out forwards';
+                    entry.target.querySelector('.section-subtitle').style.animation = 'fadeInUp 1s ease-out 0.2s forwards';
+                    entry.target.querySelector('div > div').style.animation = 'fadeInUp 1s ease-out 0.4s forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(aboutSection);
+    });
+</script>
+    
+    
+  <!-- Add this right after the about-agency section -->
+<section class="contact-cta" style="background-color: var(--primary); padding: 60px 0; color: white; text-align: center; animation: fadeIn 1s ease-out;">
+    <div class="container">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; margin-bottom: 15px; animation: fadeInUp 0.8s ease-out;">Call Us Now</h2>
+            <div style="display: inline-block; background-color: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 50px; margin-bottom: 25px; transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0;">
+                <a href="tel:+256759263158" style="color: white; text-decoration: none; font-size: 1.5rem; font-weight: 600;">
+                    <i class="fas fa-phone" style="margin-right: 10px;"></i> +256 709 787 173
+                </a>
+            </div>
+
+
+
+   
+
+
+‎
+            <p style="margin-bottom: 25px; font-size: 1.1rem; animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0;">We're available 24/7 to answer your questions</p>
+            <a href="#contact" class="btn btn-outline" style="border-color: white; color: white; animation: fadeInUp 0.8s ease-out 0.6s forwards; opacity: 0;">Ask a Question</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add to your existing style section */
+    .contact-cta a:hover {
+        transform: scale(1.05);
+    }
+    
+    .contact-cta div:hover {
+        background-color: rgba(255,255,255,0.2);
+        transform: translateY(-3px);
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactCTA = document.querySelector('.contact-cta');
+        
+        const ctaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                    const elements = entry.target.querySelectorAll('h2, div, p, a.btn');
+                    elements.forEach((el, index) => {
+                        el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.2}s forwards`;
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        ctaObserver.observe(contactCTA);
+    });
+</script>
+    <!-- Add this after the contact-cta section -->
+<section class="agency-mission" style="background-color: #f8f9fa; padding: 80px 0;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title" style="animation: fadeInUp 0.8s ease-out;">KATS UNEMPLOYMENT SOLUTIONS</h2>
+            <p class="section-subtitle" style="animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0; font-size: 1.3rem; color: var(--primary); font-weight: 600; margin-bottom: 30px;color: rgb(40, 202, 7)">
+                FINDING, CREATING, CONNECTING, MEASURING, SUCCESS
+            </p>
+            
+            <div style="background-color: white; border-radius: 10px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0;">
+                <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 1.5rem; color: rgb(252, 7, 7)">REGISTRATION</h3>
+                <div style="display: inline-block; background-color: var(--primary); color: white; padding: 10px 20px; border-radius: 5px; font-weight: 600; transition: all 0.3s ease;">
+            <a href="contact.html" class="btn btn-primary" >
+                 
+                  <i class="fas fa-edit" style="margin-right: 8px;"></i> TAP TO REGISTER</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add to your existing styles */
+    .agency-mission .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .agency-mission div:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const missionSection = document.querySelector('.agency-mission');
+        
+        const missionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.section-title').style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    entry.target.querySelector('.section-subtitle').style.animation = 'fadeInUp 0.8s ease-out 0.2s forwards';
+                    entry.target.querySelector('div > div').style.animation = 'fadeInUp 0.8s ease-out 0.4s forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        missionObserver.observe(missionSection);
+    });
+</script>
+    
+    <!-- Add this after the agency-mission section -->
+<section class="ready-section" style="padding: 100px 0; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; position: relative; overflow: hidden;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+            <h2 class="section-title" style="color: white; animation: fadeInUp 0.8s ease-out;">GET READY</h2>
+            <p class="section-subtitle" style="font-size: 1.8rem; margin-bottom: 40px; animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0; color: rgb(252, 7, 7)">
+                We Are Here to Improve Your Life Exponentially!
+            </p>
+            
+            <div style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; margin-bottom: 30px; animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0; transition: all 0.3s ease;">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    We collaborate with other companies and organizations to expand our reach and capabilities to provide opportunities for job placements and internships.
+                </p>
+            </div>
+            
+            <div style="background-color: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 30px; animation: fadeInUp 0.8s ease-out 0.6s forwards; opacity: 0; transition: all 0.3s ease;">
+                <p style="font-size: 1.1rem; margin-bottom: 0;">
+                    One of the principles guiding our company is a good reputation that has been built over a period of over 4 years and still counting, we are grateful for our staff, employees and employers who have been part of this movement.
+                </p>
+            </div>
+            
+            <div style="margin-top: 40px; animation: fadeInUp 0.8s ease-out 0.8s forwards; opacity: 0;">
+                <a href="contact.html" class="btn btn-outline" style="border-color: rgb(0, 248, 21); color: rgb(255, 255, 255);">Join Our Movement</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Decorative elements -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,0.05); z-index: 1;"></div>
+    <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,0.03); z-index: 1;"></div>
+</section>
+
+<style>
+    /* Add to your existing styles */
+    .ready-section .section-title::after {
+        background-color: var(--accent);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .ready-section div[style*="background-color: rgba(255,255,255,0.1)"]:hover {
+        transform: translateY(-5px);
+        background-color: rgba(255,255,255,0.15) !important;
+    }
+    
+    .ready-section .btn-outline:hover {
+        background-color: white;
+        color: var(--primary);
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const readySection = document.querySelector('.ready-section');
+        
+        const readyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const elements = entry.target.querySelectorAll('.section-title, .section-subtitle, div[style*="animation"], a.btn');
+                    elements.forEach((el, index) => {
+                        el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.2}s forwards`;
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        readyObserver.observe(readySection);
+    });
+</script>
+    
+    
+    
+    
+    <!-- Add this after the ready-section -->
+<section class="kats-section" style="padding: 80px 0; background-color: white;">
+    <div class="container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <!-- Text Content -->
+            <div style="flex: 1; min-width: 300px; padding: 20px; animation: fadeInLeft 0.8s ease-out;">
+                <h2 class="section-title" style="color: var(--dark);">KATS UNEMPLOYMENT</h2>
+                <h3 style="font-size: 2.2rem; color: var(--primary); margin: 20px 0; line-height: 1.2;">SOLUTIONS</h3>
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">
+                    Providing innovative solutions to bridge the gap between talent and opportunity. 
+                    Our comprehensive approach helps job seekers find meaningful employment 
+                    while connecting employers with qualified candidates.
+                </p>
+                <a href="services.html" class="btn btn-primary" style="animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0; " >
+                    Explore Solutions
+                </a>
+            </div>
+            
+            <!-- Image -->
+            <div style="flex: 1; min-width: 300px; padding: 20px; text-align: center; animation: fadeInRight 0.8s ease-out 0.2s forwards; opacity: 0;">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                     alt="Employment Solutions" 
+                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add to your existing styles */
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .kats-section img:hover {
+        transform: scale(1.02) translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .kats-section .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(42, 91, 215, 0.3);
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const katsSection = document.querySelector('.kats-section');
+        
+        const katsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('div > div:first-child').style.animation = 'fadeInLeft 0.8s ease-out forwards';
+                    entry.target.querySelector('div > div:last-child').style.animation = 'fadeInRight 0.8s ease-out 0.2s forwards';
+                    entry.target.querySelector('.btn-primary').style.animation = 'fadeInUp 0.8s ease-out 0.4s forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        katsObserver.observe(katsSection);
+    });
+</script>
+    
+  
+    <!-- Add this after the kats-section -->
+<section class="consultant-section" style="padding: 80px 0; background-color: var(--secondary);">
+    <div class="container">
+        <div class="section-title" style="text-align: center; animation: fadeInUp 0.8s ease-out;">Professional Consultants</div>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 50px;">
+            <!-- Consultant Card 1 -->
+            <div class="consultant-card" style="flex: 1; min-width: 300px; max-width: 500px; background: white; border-radius: 10px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0;">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background-color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                        <i class="fas fa-headset" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="color: var(--primary);">24/7 Support</h3>
+                </div>
+                <p style="margin-bottom: 20px;">
+                    Our professional consultants are available upon reach to assist you in the operational, living digital space making the agency a conductive, safe and dynamic place for consultations.
+                </p>
+            </div>
+            
+            <!-- Consultant Card 2 -->
+            <div class="consultant-card" style="flex: 1; min-width: 300px; max-width: 500px; background: white; border-radius: 10px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0;">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background-color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
+                        <i class="fas fa-hands-helping" style="color: white; font-size: 1.5rem;"></i>
+                    </div>
+                    <h3 style="color: var(--primary);">Guidance & Support</h3>
+                </div>
+                <p style="margin-bottom: 20px;">
+                    Our team is here to help and support you with any question you may have and guide you on how to achieve your service or task with us 24/7.
+                </p>
+                <a href=contact.html class="btn btn-primary" style="display: inline-block; margin-top: 10px;">Get Assistance</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add to your existing styles */
+    .consultant-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .consultant-section .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const consultantSection = document.querySelector('.consultant-section');
+        
+        const consultantObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.section-title').style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    const cards = entry.target.querySelectorAll('.consultant-card');
+                    cards.forEach((card, index) => {
+                        card.style.animation = `fadeInUp 0.8s ease-out ${(index + 1) * 0.2}s forwards`;
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        consultantObserver.observe(consultantSection);
+    });
+</script>
+    
+    <!-- Add this after the consultant-section -->
+<section class="services-section" style="padding: 80px 0; background-color: white;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 class="section-title" style="animation: fadeInUp 0.8s ease-out;">OUR SERVICES</h2>
+            <p class="section-subtitle" style="font-size: 1.3rem; color: #666; max-width: 800px; margin: 0 auto 30px; animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0;color:rgb(40, 202, 7)">
+                "Empowering Your Business with Comprehensive Solutions" Discover Our Range of Services Today!
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <!-- Service Card 1 - Job Placements -->
+            <div class="service-card" style="background-color: var(--secondary); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0;">
+                <div style="padding: 30px;">
+                    <div style="width: 70px; height: 70px; background-color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-briefcase" style="color: white; font-size: 1.8rem;"></i>
+                    </div>
+                    <h3 style="color: var(--dark); margin-bottom: 15px; font-size: 1.5rem;">Job Placements</h3>
+                    <p style="margin-bottom: 25px; color: #555;">
+                        Connecting top talent with leading companies through our extensive network and recruitment expertise.
+                    </p>
+                    <a href="READ MORE .html" class="btn btn-outline" style="border-color: rgb(40, 202, 7); color: var(--primary);">READ MORE</a>
+                </div>
+            </div>
+
+            <!-- Service Card 2 - IT Solutions -->
+            <div class="service-card" style="background-color: var(--secondary); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.6s forwards; opacity: 0;">
+                <div style="padding: 30px;">
+                    <div style="width: 70px; height: 70px; background-color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-laptop-code" style="color: white; font-size: 1.8rem;"></i>
+                    </div>
+                    <h3 style="color: var(--dark); margin-bottom: 15px; font-size: 1.5rem;">IT Solutions</h3>
+                    <p style="margin-bottom: 25px; color: #555;">
+                        Custom technology solutions to streamline your business operations and drive digital transformation.
+                    </p>
+                    <a href="IT SOLUTIONS.html" class="btn btn-outline" style="border-color: rgb(40, 202, 7); color: var(--primary);">READ MORE</a>
+                </div>
+            </div>
+
+            <!-- Service Card 3 - Business Registration -->
+            <div class="service-card" style="background-color: var(--secondary); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.8s forwards; opacity: 0;">
+                <div style="padding: 30px;">
+                    <div style="width: 70px; height: 70px; background-color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                        <i class="fas fa-file-signature" style="color: white; font-size: 1.8rem;"></i>
+                    </div>
+                    <h3 style="color: var(--dark); margin-bottom: 15px; font-size: 1.5rem;">URSB DOCUMENTATION</h3>
+                    <p style="margin-bottom: 25px; color: #555;">
+                        Comprehensive assistance with all legal documentation and registration processes for your business.
+                    </p>
+                    <a href="BUSINESS REGISTRATON.html" class="btn btn-outline" style="border-color: rgb(40, 202, 7); color: var(--primary);">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    
+    
+    
+    
+    
+<style>
+    /* Add to your existing styles */
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .service-card .btn-outline:hover {
+        background-color: var(--primary);
+        color: white;
+    }
+    
+    .services-section .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const servicesSection = document.querySelector('.services-section');
+        
+        const servicesObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.section-title').style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    entry.target.querySelector('.section-subtitle').style.animation = 'fadeInUp 0.8s ease-out 0.2s forwards';
+                    const cards = entry.target.querySelectorAll('.service-card');
+                    cards.forEach((card, index) => {
+                        card.style.animation = `fadeInUp 0.8s ease-out ${(index + 2) * 0.2}s forwards`;
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        servicesObserver.observe(servicesSection);
+    });
+</script>
+    
+ 
+    
+    
+    
+    <!-- Add this after the services-section -->
+<section class="job-search-section" style="padding: 80px 0; background-color: var(--secondary);">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 class="section-title" style="animation: fadeInUp 0.8s ease-out; color: rgb(40, 202, 7)">SIGN UP FOR YOUR</h2>
+            <h3 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; animation: fadeInUp 0.8s ease-out 0.2s forwards; opacity: 0;">JOB TODAY</h3>
+        </div>
+
+        <div style="max-width: 1000px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0;">
+            <!-- Job Categories -->
+            <div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid #eee; padding: 20px;">
+                <div class="job-category" style="flex: 1; min-width: 150px; text-align: center; padding: 15px; cursor: pointer; transition: all 0.3s ease; border-bottom: 3px solid transparent;">
+                    All Jobs
+                </div>
+                <div class="job-category" style="flex: 1; min-width: 150px; text-align: center; padding: 15px; cursor: pointer; transition: all 0.3s ease; border-bottom: 3px solid transparent;">
+                    Office Jobs
+                </div>
+                <div class="job-category" style="flex: 1; min-width: 150px; text-align: center; padding: 15px; cursor: pointer; transition: all 0.3s ease; border-bottom: 3px solid transparent;">
+                    House Workers
+                </div>
+                <div class="job-category" style="flex: 1; min-width: 150px; text-align: center; padding: 15px; cursor: pointer; transition: all 0.3s ease; border-bottom: 3px solid transparent;">
+                    Medical Industry
+                </div>
+                <div class="job-category" style="flex: 1; min-width: 150px; text-align: center; padding: 15px; cursor: pointer; transition: all 0.3s ease; border-bottom: 3px solid transparent;">
+                    Education Institute
+                </div>
+                <div class="job-category" style="flex: 1; min-width: 150px; text-align: center; padding: 15px; cursor: pointer; transition: all 0.3s ease; border-bottom: 3px solid transparent;">
+                    Hotel & Catering
+                </div>
+            </div>
+
+            <!-- Search and Filter -->
+            <div style="display: flex; flex-wrap: wrap; padding: 20px; border-bottom: 1px solid #eee;">
+                <div style="flex: 1; min-width: 200px; padding: 10px;">
+                    <div style="position: relative;">
+                        <input type="text" placeholder="Search jobs..." style="width: 100%; padding: 12px 15px 12px 40px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                        <i class="fas fa-search" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #777;"></i>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 200px; padding: 10px;">
+                    <select style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill="%23777" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); background-repeat: no-repeat; background-position: right 10px center;">
+                        <option value="">Filter by location</option>
+                        <option value="kampala">Kampala</option>
+                        <option value="entebbe">Entebbe</option>
+                        <option value="jinja">Jinja</option>
+                        <option value="mbarara">Mbarara</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Job Listings (Sample) -->
+            <div class="job-listings" style="padding: 20px;">
+                <!-- Sample Job 1 -->
+                <div class="job-item" style="padding: 20px; border-bottom: 1px solid #eee; transition: all 0.3s ease;">
+                    <h4 style="color: var(--primary); margin-bottom: 5px;">Office Administrator</h4>
+                    <div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">
+                        <span style="margin-right: 20px; color: #666;"><i class="fas fa-building" style="margin-right: 5px;"></i> ABC Corporation</span>
+                        <span style="margin-right: 20px; color: #666;"><i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i> Kampala</span>
+                        <span style="color: #666;"><i class="fas fa-clock" style="margin-right: 5px;"></i> Full-time</span>
+                    </div>
+                    <p style="margin-bottom: 15px; color: #555;">We're looking for an experienced office administrator to manage our daily operations...</p>
+                    <a href="contact.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Apply Now</a>
+                </div>
+
+                <!-- Sample Job 2 -->
+                <div class="job-item" style="padding: 20px; border-bottom: 1px solid #eee; transition: all 0.3s ease;">
+                    <h4 style="color: var(--primary); margin-bottom: 5px;">Registered Nurse</h4>
+                    <div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">
+                        <span style="margin-right: 20px; color: #666;"><i class="fas fa-building" style="margin-right: 5px;"></i> City Hospital</span>
+                        <span style="margin-right: 20px; color: #666;"><i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i> Entebbe</span>
+                        <span style="color: #666;"><i class="fas fa-clock" style="margin-right: 5px;"></i> Part-time</span>
+                    </div>
+                    <p style="margin-bottom: 15px; color: #555;">Seeking qualified nurses to join our healthcare team at City Hospital...</p>
+                    <a href="contact.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Apply Now</a>
+                </div>
+
+                <!-- View More Button -->
+                <div style="text-align: center; padding: 30px 0 10px;">
+                    <a href="carriers.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">View All Jobs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add to your existing styles */
+    .job-category:hover {
+        color: var(--primary);
+    }
+    
+    .job-category.active {
+        color: var(--primary);
+        border-bottom-color: var(--primary) !important;
+        font-weight: 600;
+    }
+    
+    .job-item:hover {
+        background-color: rgba(42, 91, 215, 0.03);
+    }
+    
+    .job-search-section .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const jobSection = document.querySelector('.job-search-section');
+        
+        const jobObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.section-title').style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    entry.target.querySelector('h3').style.animation = 'fadeInUp 0.8s ease-out 0.2s forwards';
+                    entry.target.querySelector('div[style*="max-width: 1000px"]').style.animation = 'fadeInUp 0.8s ease-out 0.4s forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        jobObserver.observe(jobSection);
+        
+        // Category selection
+        const categories = document.querySelectorAll('.job-category');
+        categories.forEach(category => {
+            category.addEventListener('click', function() {
+                categories.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Activate first category by default
+        if (categories.length > 0) {
+            categories[0].classList.add('active');
+        }
+    });
+</script>
+    
+
+<style>
+    /* Add to your existing styles */
+    .hiring-cta a:hover {
+        opacity: 0.9;
+        transform: translateY(-3px);
+    }
+    
+    .hiring-cta .btn:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    @media (max-width: 768px) {
+        .hiring-cta ul {
+            columns: 1;
+        }
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const hiringSection = document.querySelector('.hiring-cta');
+        
+        const hiringObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('div > div:first-child').style.animation = 'fadeInLeft 0.8s ease-out forwards';
+                    entry.target.querySelector('div > div:last-child').style.animation = 'fadeInRight 0.8s ease-out 0.2s forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        hiringObserver.observe(hiringSection);
+    });
+</script>
+
+ 
+            <!-- Footer -->
+            <div style="padding: 30px; background-color: var(--dark); color: white; text-align: center;">
+                <p style="margin-bottom: 10px; font-weight: 600;">KATS UNEMPLOYMENT SOLUTIONS</p>
+                <p style="margin-bottom: 20px;">At kats Unemplyment Solutions ug , we don’t just fill vacancies — we deliver top-tier talent that drives real business growth. Whether you’re hiring one key team member or building a department, our dedicated recruitment experts are here to match you with the best candidates in your industry.</p>
+                <a href="contact.html" class="btn btn-primary" style="display: inline-block;">
+                    REGISTER NOW
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Add to your existing styles */
+    .job-posting a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+    
+    .job-posting li {
+        transition: transform 0.3s ease;
+    }
+    
+    .job-posting li:hover {
+        transform: translateX(5px);
+    }
+    
+    .job-posting .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+</style>
+
+<script>
+    // Add to your existing IntersectionObserver code
+    document.addEventListener('DOMContentLoaded', function() {
+        const jobPostingSection = document.querySelector('.job-posting');
+        
+        const jobPostingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('div > div').style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        jobPostingObserver.observe(jobPostingSection);
+    });
+</script>
+
+<div class="image-container">
+  <img src="kats4.jpg" alt="Account Manager Position">
+</div>
+
+<style>
+  .image-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+  }
+</style>
+
+
+
+<!-- Footer -->
+            <div style="padding: 30px; background-color: var(--dark); color: white; text-align: center;">
+                <p style="margin-bottom: 10px; font-weight: 600;">KATS UNEMPLOYMENT SOLUTIONS</p>
+                <p style="margin-bottom: 20px;">Hire smarter, faster,better - with KATS unemployment solutions talent network, looking for reliable, skilled workers— KATS  pre screened job-ready Candidates. save time,save cos. Hire right-the first time with KATS. Your workforce success starts here,Partner with KATS toda</p>
+                <a href="employer.html" class="btn btn-primary" style="display: inline-block;">
+                    POST A JOB
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+   <section class="contact-section">
+  <!-- Image Section -->
+  <div class="contact-image">
+    <img src="kats12.jpg" alt="Contact us illustration" class="responsive-image">
+  </div>
+
+  <!-- Contact Form Section -->
+  <div class="contact-content">
+    <div class="contact-header">
+<h2><i class="fas fa-phone" style="margin-right: 10px;"></i>Call us</h2>
+<p class="phone-number">
+  <a href="tel:+256709787173" style="text-decoration: none; color: inherit;">+256 709 787 173</a>
+</p>
+
+<h2><img src="kats11.png" style="margin-right: 10px;" width="50" height="50"></h2>
+<p class="phone-number">
+  <a href="https://wa.me/256786765307" style="text-decoration: none; color: inherit;">+256 786 765 307</a>
+</p>
+
+    </section>
+     
+‎<!-- WhatsApp Contact Form Section -->
+‎<section class="contact-section" style="padding: 80px 0; background-color: #f8f9fa;">
+‎  
+        
+        
+        
+        
+        
+        
+        <div class="container">
+    <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">Contact Us via WhatsApp</h2>
+    
+    <form id="whatsappForm" class="contact-form" style="max-width: 600px; margin: 0 auto;">
+      <div class="form-group" style="margin-bottom: 20px;">
+        <input type="text" id="name" name="name" placeholder="Your Name" required 
+               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+      </div>
+      
+      <div class="form-group" style="margin-bottom: 20px;">
+        <input type="email" id="email" name="email" placeholder="Your Email" 
+               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+      </div>
+      
+      <div class="form-group" style="margin-bottom: 20px;">
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required
+               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+      </div>
+      
+      <div class="form-group" style="margin-bottom: 20px;">
+        <input type="text" id="location" name="location" placeholder="Your Location (City/Country)" 
+               style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+      </div>
+      
+      <div class="form-group" style="margin-bottom: 20px;">
+        <select id="service" name="service" required
+                style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+          <option value="" disabled selected>Select Service Needed</option>
+          <option value="Job Placement">Job Placement</option>
+          <option value="Employee Required">Employee Required</option>
+          <option value="I Need a Job">I Need a Job</option>
+          <option value="Internship Placements">Internship Placements</option>
+          <option value="Accountant Services">Accountant Services</option>
+          <option value="Business Registration">Business Registration</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="HR Management">HR Management</option>
+          <option value="Branding and Graphic Design">Branding and Graphic Design</option>
+          <option value="IT Solutions">IT Solutions</option>
+          <option value="Web Designing">Web Designing</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group" style="margin-bottom: 25px;">
+        <textarea id="message" name="message" placeholder="Your Message" rows="4" required
+                  style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;"></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn" 
+              style="background-color: #25D366; color: white; padding: 12px 30px; border: none; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-right: 10px;">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        Send via WhatsApp
+      </button>
+    </form>
+    
+    <!-- Success Message (Hidden by default) -->
+    <div id="form-success" style="display: none; text-align: center; padding: 20px; background-color: #d4edda; color: #155724; border-radius: 4px; max-width: 600px; margin: 20px auto;">
+      Thank you! WhatsApp should open automatically. If not, please message +256 743 248 818 directly.
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const submitBtn = e.target.querySelector('.submit-btn');
+    
+    // Get form values
+    const name = encodeURIComponent(document.getElementById('name').value);
+    const email = encodeURIComponent(document.getElementById('email').value);
+    const phone = encodeURIComponent(document.getElementById('phone').value);
+    const location = encodeURIComponent(document.getElementById('location').value);
+    const service = encodeURIComponent(document.getElementById('service').value);
+    const message = encodeURIComponent(document.getElementById('message').value);
+    
+    // Format WhatsApp message
+    const whatsappMessage = `New Contact Request%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Location:* ${location}%0A*Service Needed:* ${service}%0A*Message:* ${message}`;
+    
+    // Create WhatsApp URLs
+    const whatsappNumber = '256786765307'; // Uganda format without +
+    const appUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    const webUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${whatsappMessage}`;
+    
+    // Change button state
+    submitBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-right: 10px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> Opening WhatsApp...`;
+    submitBtn.disabled = true;
+    
+    // Check device type
+    const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Open WhatsApp
+    if (isMobile) {
+      // Try to open WhatsApp app first
+      window.location.href = appUrl;
+      
+      // Fallback to web version after 1 second if app doesn't open
+      setTimeout(() => {
+        window.location.href = webUrl;
+      }, 1000);
+    } else {
+      // Desktop - open web WhatsApp
+      window.open(webUrl, '_blank');
+    }
+    
+    // Show success message
+    document.getElementById('form-success').style.display = 'block';
+    
+    // Reset button after 3 seconds
+    setTimeout(() => {
+      submitBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" style="margin-right: 10px;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> Send via WhatsApp`;
+      submitBtn.disabled = false;
+    }, 3000);
+    
+    // Reset form
+    this.reset();
+  });
+</script>
+
+<style>
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #25D366;
+    box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+  }
+  
+  .submit-btn:hover {
+    background-color: #128C7E !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .submit-btn:disabled {
+    opacity: 0.7;
+    transform: none !important;
+  }
+</style>
+        
+    </section>
+
+
+       
+       
+       <!-- Footer -->
+            <div style="padding: 30px; background-color: var(--dark); color: rgb(182, 231, 193); text-align: center;">
+                <p style="margin-bottom: 10px; font-weight: 600;">KATS UNEMPLOYMENT SOLUTIONS</p>
+                <p style="margin-bottom: 20px;"> Unemplyment?  not any more, let KATS match you with opportunities that fit you perfectly — we dont just help you find a job-we help you build a career. stand out from the crowd. KaTs empowers you with tools,support and access to verified employers. contact now and join thousands who have turned their job search into job succcess.</p>
+                <a href="Form submit.html" class="btn btn-primary" style="display: inline-block;">
+                    APPLY FOR A JOB
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+       
+       
+       
+       
+       
+       
+       
+    
+       
+       
+       
+       
+
+<style>
+  .contact-section {
+    max-width: 900px;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .contact-image {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .contact-content {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .responsive-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .contact-header h2 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 24px;
+  }
+
+  .phone-number {
+    color: #3498db;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
+  }
+
+  input:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .submit-btn:hover {
+    background: #2980b9;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .contact-image, .contact-content {
+      min-width: 100%;
+    }
+  }
+</style>
+
+
+<br>
+ 
+    
+
+<div class="image-container">
+  <img src="kats10.png" alt="Descriptive image text" class="responsive-image">
+</div>
+
+<style>
+  .image-container {
+    max-width: 100%;       /* Container won't exceed parent width */
+    margin: 20px auto;     /* Centers container with space around */
+    padding: 15px;         /* Inner spacing */
+    background: #f8f9fa;   /* Light background color */
+    border-radius: 8px;    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow */
+    text-align: center;    /* Center image horizontally */
+  }
+
+  .responsive-image {
+    max-width: 100%;       /* Image won't exceed container width */
+    height: auto;          /* Maintain aspect ratio */
+    border-radius: 5px;    /* Slightly rounded image corners */
+    display: block;        /* Remove extra space below image */
+    margin: 0 auto;        /* Center image in container */
+  }
+
+  /* Optional hover effect */
+  .responsive-image:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    transition: transform 0.3s ease;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="testimonial-slider-section">
+  <h2 style="color: red">What Our Clients Say About Our Services</h2>
+  
+  <div class="slider-container">
+    <div class="testimonial-track">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-slide">
+        <div class="client-info">
+          <strong>Juma</strong>
+          <span>LAWYER</span>
+        </div>
+        <div class="testimonial-text">
+          <p>"I had a wonderful experience working with this agency. They were professional, reliable, and always had my best interests in mind. They helped me navigate the job market and provided me with the support I needed to succeed. I would definitely recommend this agency to anyone looking for a job!"</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-slide">
+        <div class="client-info">
+          <strong>Sarah</strong>
+          <span>ACCOUNTANT</span>
+        </div>
+        <div class="testimonial-text">
+          <p>"The team provided exceptional service throughout my career transition. Their guidance was invaluable and their network of contacts opened doors I couldn't access on my own. Truly a partnership that delivers results."</p>
+        </div>
+      </div>
+        
+        
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-slide">
+        <div class="client-info">
+          <strong>Michael</strong>
+          <span>IT MANAGER</span>
+        </div>
+        <div class="testimonial-text">
+          <p>"From resume optimization to interview preparation, every step was handled professionally. I landed my dream job faster than I expected thanks to their expertise and industry knowledge."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+    
+</section>
+
+<style>
+  .testimonial-slider-section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+  }
+  
+  .testimonial-slider-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-size: 28px;
+  }
+  
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .testimonial-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 300%; /* 3 slides */
+  }
+  
+  .testimonial-slide {
+    width: 33.333%;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .client-info {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+  }
+  
+  .client-info strong {
+    display: block;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .client-info span {
+    color: #7f8c8d;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  .testimonial-text p {
+    color: #555;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.testimonial-track');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    
+    function slideToNext() {
+      currentIndex = (currentIndex + 1) % slideCount;
+      track.style.transform = `translateX(-${currentIndex * 33.333}%)`;
+    }
+    
+    // Auto-slide every 5 seconds
+    setInterval(slideToNext, 5000);
+  });
+</script>
+
+
+
+<style>
+  .blog-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .blog-header {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .blog-header h1 {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-size: 28px;
+  }
+  
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #7f8c8d;
+    font-size: 14px;
+  }
+  
+  .blog-content h2 {
+    color: #2c3e50;
+    margin: 20px 0 15px 0;
+    font-size: 22px;
+  }
+  
+  .blog-excerpt {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+  
+  .read-more {
+    display: inline-block;
+    color: #3498db;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .read-more:hover {
+    color: #2980b9;
+    text-decoration: underline;
+  }
+  
+  .read-more::after {
+    content: "→";
+    margin-left: 5px;
+    transition: margin-left 0.3s;
+  }
+  
+  .read-more:hover::after {
+    margin-left: 8px;
+  }
+</style>
+
+
+
+<section class="image-container">
+  <div class="image-wrapper">
+    <img src="kats5.jpg" alt="Description of your image">
+  </div>
+  <div class="image-caption">Optional caption text here</div>
+</section>
+
+<style>
+  .image-container {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .image-wrapper {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #eee;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-wrapper:hover img {
+    transform: scale(1.02);
+  }
+  
+  .image-caption {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUSUL AGENCIES</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Social Links Styling */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #fff;
+            background: #3a3a3a;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #007bff;
+            transform: translateY(-3px);
+        }
+
+        /* Go Up Button Styling */
+        .go-up-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+        }
+
+        .go-up-btn.show {
+            display: flex;
+        }
+
+        /* Add your existing styles below */
+        /* ... your existing CSS ... */
+    </style>
+</head>
+<body>
+    
+    
+    <!-- Your existing HTML content here -->
+
+    <footer>
+        
+        <div class="container">
+             <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+            
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+            
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://facebook.com/kusulagenciesugandaltd" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/katsunempsolnug" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/Kusul_agencies_ug_ltd" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/company/kusulagenciesugandaltd" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://tiktok.com/@katsunemploymentsolns" target="_blank" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://whatsapp.com/channel/0029Vb5vXdw47XeGBPJdcy31" target="_blank" title="WhatsApp Channel">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://jiji.ug/sellerpage-BwsRGCLfyB8oa4CSq5wUe2xI" target="_blank" title="Jiji">
+                    <i class="fas fa-store"></i>
+                </a>
+                <a href="mailto:katsunemploymentsolutionsugltd@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            
+
+            <!-- Copyright Text -->
+            <p>&copy; 2025 KATS Unemplyment Solutions<p>All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Go Up Button -->
+    <button id="goUpBtn" class="go-up-btn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Animate stats counting
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + '+';
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Start animations when stats section is in view
+        const statsSection = document.querySelector('.stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue('successfulCandidates', 0, 15000, 2000);
+                    animateValue('partneredCompanies', 0, 3000, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Slider functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function goToSlide(n) {
+            showSlide(n);
+        }
+        
+        // Auto slide change every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Go Up Button functionality
+        const goUpBtn = document.getElementById('goUpBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                goUpBtn.classList.add('show');
+            } else {
+                goUpBtn.classList.remove('show');
+            }
+        });
+        
+        goUpBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
+             
+   
+</body>
+</html>
