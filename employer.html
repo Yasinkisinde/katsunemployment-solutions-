@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job Opportunity | KATS Unemployment Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo h2 {
+            color: white;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            .form-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="kats10.png" alt="KATS Logo">
+                <h1>KATS <span>UNEMPLOYMENT SOLUTIONS</span></h1>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="form-container">
+            <div class="success-message" id="successMessage">
+                <h3>Thank you for submitting your job opportunity!</h3>
+                <p>We will review your submission and contact you shortly.</p>
+            </div>
+            
+            <div class="form-header">
+                <h2>Post a Job Opportunity</h2>
+                <p>Fill out this form to submit your job opening to KATS Unemployment Solutions</p>
+            </div>
+            
+            <form id="jobPostingForm" action="https://formsubmit.co/katsunemploymentsolutionsugltd@gmail.com" method="POST">
+                <!-- Company Information -->
+                <h3 style="margin-bottom: 20px; color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 5px;">Company Information</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyName" class="required-field">Company Name</label>
+                        <input type="text" id="companyName" name="companyName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <input type="text" id="industry" name="industry">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactPerson" class="required-field">Contact Person</label>
+                        <input type="text" id="contactPerson" name="contactPerson" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position/Title</label>
+                        <input type="text" id="position" name="position">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email" class="required-field">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="required-field">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="companyAddress">Company Address</label>
+                    <input type="text" id="companyAddress" name="companyAddress">
+                </div>
+                
+                <div class="form-group">
+                    <label for="website">Website (if any)</label>
+                    <input type="url" id="website" name="website">
+                </div>
+                
+                <!-- Job Details -->
+                <h3 style="margin: 30px 0 20px 0; color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 5px;">Job Details</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobTitle" class="required-field">Job Title</label>
+                        <input type="text" id="jobTitle" name="jobTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobType" class="required-field">Job Type</label>
+                        <select id="jobType" name="jobType" required>
+                            <option value="">Select Job Type</option>
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                            <option value="Contract">Contract</option>
+                            <option value="Temporary">Temporary</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Freelance">Freelance</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location" class="required-field">Job Location</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="salaryRange">Salary Range</label>
+                        <input type="text" id="salaryRange" name="salaryRange" placeholder="e.g., UGX 1,000,000 - 1,500,000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vacancies">Number of Vacancies</label>
+                        <input type="number" id="vacancies" name="vacancies" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Application Deadline</label>
+                        <input type="date" id="deadline" name="deadline">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="jobDescription" class="required-field">Job Description</label>
+                    <textarea id="jobDescription" name="jobDescription" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="qualifications">Required Qualifications</label>
+                    <textarea id="qualifications" name="qualifications"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Experience Requirements</label>
+                    <textarea id="experience" name="experience"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="benefits">Benefits (if any)</label>
+                    <textarea id="benefits" name="benefits"></textarea>
+                </div>
+                
+                <!-- Additional Information -->
+                <h3 style="margin: 30px 0 20px 0; color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 5px;">Additional Information</h3>
+                
+                <div class="form-group">
+                    <label for="howHear">How did you hear about us?</label>
+                    <select id="howHear" name="howHear">
+                        <option value="">Select an option</option>
+                        <option value="Referral">Referral</option>
+                        <option value="Website">Website</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Advertisement">Advertisement</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="additionalInfo">Any additional information we should know?</label>
+                    <textarea id="additionalInfo" name="additionalInfo"></textarea>
+                </div>
+                
+                <!-- Hidden Fields for FormSubmit -->
+                <input type="hidden" name="_subject" value="New Job Opportunity Submission">
+                <input type="hidden" name="_autoresponse" value="Thank you for submitting your job opportunity to KATS Unemployment Solutions. We will review your submission and contact you shortly.">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block">Submit Job Opportunity</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <h2>KATS <span>UNEMPLOYMENT SOLUTIONS</span></h2>
+            </div>
+           
+            
+            <div class="social-links">
+                <a href="https://facebook.com/kusulagenciesugandaltd" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/katsunempsolnug" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/Kusul_agencies_ug_ltd" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com/company/kusulagenciesugandaltd" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://tiktok.com/@katsunemploymentsolns" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://whatsapp.com/channel/0029Vb5vXdw47XeGBPJdcy31" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <p>&copy; 2025 KATS Unemployment Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('jobPostingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // You can add form validation here if needed
+            
+            // Submit the form using FormSubmit
+            this.submit();
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Scroll to the success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // Reset the form
+            this.reset();
+            
+            // Hide the form
+            this.style.display = 'none';
+        });
+        
+        // You can add more JavaScript for form validation as needed
+    </script>
+</body>
+</html>

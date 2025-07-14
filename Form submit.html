@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form | KATS Unemployment Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .required:after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .form-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1>Job Application Form</h1>
+            <p>Fill out this form to apply for jobs through KATS Unemployment Solutions</p>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i> Thank you! Your application has been submitted successfully.
+        </div>
+        
+        <form id="jobApplicationForm" onsubmit="return submitForm()">
+            <input type="hidden" name="form_type" value="job_application">
+            
+            <div class="form-group">
+                <label for="fullName" class="required">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+                <div class="error-message" id="nameError">Please enter your full name</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="required">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+                <div class="error-message" id="phoneError">Please enter your phone number</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="location">Location (City/District)</label>
+                <input type="text" id="location" name="location">
+            </div>
+            
+            <div class="form-group">
+                <label for="education" class="required">Highest Education Level</label>
+                <select id="education" name="education" required>
+                    <option value="">Select Education Level</option>
+                    <option value="Primary">Primary School</option>
+                    <option value="O-Level">O-Level (UCE)</option>
+                    <option value="A-Level">A-Level (UACE)</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Bachelor">Bachelor's Degree</option>
+                    <option value="Master">Master's Degree</option>
+                    <option value="PhD">PhD</option>
+                    <option value="Other">Other</option>
+                </select>
+                <div class="error-message" id="educationError">Please select your education level</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="profession" class="required">Profession/Field</label>
+                <input type="text" id="profession" name="profession" required>
+                <div class="error-message" id="professionError">Please enter your profession</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="experience" class="required">Years of Experience</label>
+                <select id="experience" name="experience" required>
+                    <option value="">Select Experience</option>
+                    <option value="0">No experience</option>
+                    <option value="1-2">1-2 years</option>
+                    <option value="3-5">3-5 years</option>
+                    <option value="5+">5+ years</option>
+                </select>
+                <div class="error-message" id="experienceError">Please select your experience level</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="skills">Key Skills (Separate with commas)</label>
+                <textarea id="skills" name="skills" placeholder="e.g., Microsoft Office, Customer Service, Web Design"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="jobType" class="required">Job Type Seeking</label>
+                <select id="jobType" name="jobType" required>
+                    <option value="">Select Job Type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Any">Any</option>
+                </select>
+                <div class="error-message" id="jobTypeError">Please select job type</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="salaryExpectation">Salary Expectation (UGX)</label>
+                <input type="text" id="salaryExpectation" name="salaryExpectation" placeholder="e.g., 800,000 - 1,200,000">
+            </div>
+            
+            <div class="form-group">
+                <label for="availability">When Can You Start?</label>
+                <select id="availability" name="availability">
+                    <option value="">Select Availability</option>
+                    <option value="Immediately">Immediately</option>
+                    <option value="1-2 weeks">1-2 weeks</option>
+                    <option value="1 month">1 month</option>
+                    <option value="Negotiable">Negotiable</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" placeholder="Tell us anything else we should know"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="howHear">How did you hear about us?</label>
+                <select id="howHear" name="howHear">
+                    <option value="">Select Option</option>
+                    <option value="Friend/Family">Friend/Family</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Website">Website</option>
+                    <option value="Advertisement">Advertisement</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">
+                <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Submit Application
+            </button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            let isValid = true;
+            
+            // Validate required fields
+            const requiredFields = ['fullName', 'email', 'phone', 'education', 'profession', 'experience', 'jobType'];
+            
+            requiredFields.forEach(field => {
+                const element = document.getElementById(field);
+                if (!element.value.trim()) {
+                    document.getElementById(`${field}Error`).style.display = 'block';
+                    isValid = false;
+                }
+            });
+            
+            // Validate email format
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value && !emailRegex.test(email.value)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                // Scroll to first error
+                const firstError = document.querySelector('.error-message[style="display: block;"]');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+                }
+            }
+
+            // Format the email body in a clean, organized way
+            const formData = new FormData(document.getElementById('jobApplicationForm'));
+            let emailBody = "NEW JOB APPLICATION SUBMISSION\n\n";
+            emailBody += "=== PERSONAL INFORMATION ===\n";
+            emailBody += `Full Name: ${formData.get('fullName')}\n`;
+            emailBody += `Email: ${formData.get('email')}\n`;
+            emailBody += `Phone: ${formData.get('phone')}\n`;
+            emailBody += `Location: ${formData.get('location') || 'Not specified'}\n\n`;
+            
+            emailBody += "=== PROFESSIONAL DETAILS ===\n";
+            emailBody += `Education: ${formData.get('education')}\n`;
+            emailBody += `Profession: ${formData.get('profession')}\n`;
+            emailBody += `Experience: ${formData.get('experience')}\n`;
+            emailBody += `Key Skills: ${formData.get('skills') || 'Not specified'}\n\n`;
+            
+            emailBody += "=== JOB PREFERENCES ===\n";
+            emailBody += `Job Type: ${formData.get('jobType')}\n`;
+            emailBody += `Salary Expectation: ${formData.get('salaryExpectation') || 'Not specified'}\n`;
+            emailBody += `Availability: ${formData.get('availability') || 'Not specified'}\n\n`;
+            
+            emailBody += "=== ADDITIONAL INFORMATION ===\n";
+            emailBody += `Message: ${formData.get('message') || 'None provided'}\n`;
+            emailBody += `How They Heard About Us: ${formData.get('howHear') || 'Not specified'}\n\n`;
+            
+            emailBody += "=== FORM SUBMISSION DETAILS ===\n";
+            emailBody += `Submission Date: ${new Date().toLocaleString()}\n`;
+            emailBody += `IP Address: ${window.location.hostname}\n`;
+
+            // Create mailto link with formatted subject and body
+            const subject = `New Job Application: ${formData.get('fullName')} - ${formData.get('profession')}`;
+            const mailtoLink = `mailto:katsunemploymentsolutionsugltd@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('jobApplicationForm').style.display = 'none';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            return false;
+        }
+
+        // Real-time email validation
+        document.getElementById('email').addEventListener('input', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('emailError').style.display = 'block';
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

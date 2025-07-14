@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | KATS Unemployment Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color: rgb(48, 252, 7);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid rgb(48, 252, 7);
+            color: rgb(48, 252, 7);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        /* FAQ Page Specific Styles */
+        .faq-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('faq.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+        
+        .faq-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .faq-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .faq-search {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .faq-search input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .faq-search button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        .faq-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .faq-category {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-category:hover, .faq-category.active {
+            background: var(--accent);
+        }
+        
+        .faq-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f9f9f9;
+        }
+        
+        .faq-question h3 {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .faq-question i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-cta {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .contact-cta h2 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-cta .btn {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="kats10.png" style="color: var(--primary);" width="100" height="100" alt="KATS Logo">
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html"  STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="careers.html" class="active"  STYLE="color: rgb(252, 7, 7)">Careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQS</a></li>
+                    <li><a href="about.html" STYLE="color: rgb(7, 23, 245)">About</a></li>
+                    <li><a href="contact.html"  STYLE="color: rgb(48, 252, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- FAQ Hero Section -->
+    <section class="faq-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our services, job placements, and recruitment process.</p>
+          
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="container">
+        <div class="faq-categories">
+            <div class="faq-category active">All Questions</div>
+            <div class="faq-category">Job Seekers</div>
+            <div class="faq-category">Employers</div>
+            <div class="faq-category">Registration</div>
+            <div class="faq-category">Services</div>
+            <div class="faq-category">Payments</div>
+        </div>
+        
+        <div class="section-title">Common Questions</div>
+        <p class="section-subtitle">Get quick answers to our most frequently asked questions</p>
+        
+        <div class="faq-container">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How does KATS Unemployment Solutions help job seekers?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>KATS Unemployment Solutions provides comprehensive job placement services including:</p>
+                    <ul>
+                        <li>Career counseling and guidance</li>
+                        <li>Job matching based on your skills and experience</li>
+                        <li>Resume/CV writing assistance</li>
+                        <li>Interview preparation and coaching</li>
+                        <li>Access to exclusive job opportunities</li>
+                        <li>Follow-up support after placement</li>
+                    </ul>
+                    <p>We work with a wide network of employers across various industries in Uganda to connect you with the right opportunities.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What are the requirements to register as a job seeker?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>To register with KATS Unemployment Solutions as a job seeker, you'll need:</p>
+                    <ul>
+                       
+                        <li>Updated CV/resume</li>
+                        <li>Copies of your academic certificates and transcripts</li>
+                        <li>Professional certifications (if applicable)</li>
+                        <li>National ID or passport</li>
+                        <li>Recent passport-sized photograph</li>
+                        
+                    
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does the job placement process take?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The job placement timeline varies depending on several factors:</p>
+                    <ul>
+                        <li><strong>Your qualifications and experience:</strong> Highly skilled candidates typically get placed faster</li>
+                        <li><strong>Industry demand:</strong> Some sectors have more openings than others</li>
+                        <li><strong>Location preferences:</strong> Being open to different locations increases opportunities</li>
+                        <li><strong>Salary expectations:</strong> Realistic expectations lead to faster placements</li>
+                    </ul>
+                    <p>On average, most candidates secure employment within 2-10 working days after handing in your profile, though some specialized roles may take longer.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What industries and job types do you specialize in?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>KATS Unemployment Solutions works with employers across all major industries in Uganda including:</p>
+                    <ul>
+                        <li><strong>Healthcare:</strong> Doctors, nurses, pharmacists, lab technicians</li>
+                        <li><strong>Education:</strong> Teachers, lecturers, administrators</li>
+                        <li><strong>IT & Technology:</strong> Developers, network engineers, support specialists</li>
+                        <li><strong>Hospitality:</strong> Hotel staff, chefs, tour guides</li>
+                        <li><strong>Finance:</strong> Accountants, auditors, bankers</li>
+                        <li><strong>Construction:</strong> Engineers, architects, project managers</li>
+                        <li><strong>Administrative:</strong> Office managers, receptionists, secretaries</li>
+                        <li><strong>Domestic:</strong> House helps, gardeners, drivers</li>
+                        <li><strong>Manufacturing:</strong> welders, engineers, operators, quality controllers, production managers etc</li>
+                        <li><strong>Cusual:</strong> house keepers, shop attendants, supermarket attendants, waitresses and waiters etc</li>
+                    </ul>
+                    <p>We place candidates in both full-time and part-time positions at all experience levels.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you charge fees for job placement services?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No appliction fees  are incurred:</p>
+                    <ul>
+                        
+                    
+                </div>
+            </div>
+            
+            <!-- FAQ Item 6 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How can employers benefit from your services?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Employers partnering with KATS Unemployment Solutions enjoy numerous benefits:</p>
+                    <ul>
+                        <li>Access to pre-screened, qualified candidates</li>
+                        <li>Reduced hiring time and recruitment costs</li>
+                        <li>Temporary and permanent staffing solutions</li>
+                        <li>Background checks and reference verification</li>
+                        <li>HR consulting and support</li>
+                        <li>Payroll management services</li>
+                        <li>Customized recruitment strategies</li>
+                    </ul>
+                    <p>We handle the entire recruitment process so you can focus on running your business.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 7 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What makes KATS different from other recruitment agencies?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>KATS Unemployment Solutions stands out because of our:</p>
+                    <ul>
+                        <li><strong>Comprehensive Approach:</strong> We offer more than just job placement - career counseling, training, and ongoing support</li>
+                        <li><strong>Extensive Network:</strong> Strong relationships with employers across all sectors</li>
+                        <li><strong>Personalized Service:</strong> Dedicated consultants for each candidate and employer</li>
+                        <li><strong>Proven Track Record:</strong> High placement success rate since 2019</li>
+                        <li><strong>Additional Services:</strong> Unique offerings like business registration and IT solutions</li>
+                        <li><strong>Transparent Process:</strong> Clear communication at every step</li>
+                    </ul>
+                    <p>Our goal is to creating overlasting relationships with our clients through contracts and other one time services.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 8 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you offer internship opportunities?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we provide internship placement services for both students and recent graduates:</p>
+                    <ul>
+                        <li><strong>For Students:</strong> We partner with companies to arrange academic internships that fulfill university requirements</li>
+                        <li><strong>For Graduates:</strong> Professional internships to gain work experience</li>
+                        <li><strong>Duration:</strong> Typically 2-4 months, depending on the program</li>
+                        <li><strong>Fields:</strong> Available in all major industries</li>
+                        <li><strong>Stipends:</strong> Some internships are paid, others offer valuable experience</li>
+                    </ul>
+                    <p>Our internship program has helped hundreds of young professionals launch their careers.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 9 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What should I do if I'm not satisfied with a placement?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Customer satisfaction is our priority. If you're unhappy with a placement:</p>
+                    <ol>
+                        <li><strong>Contact us immediately:</strong> Reach out to your consultant within the first week</li>
+                        <li><strong>Explain the issue:</strong> Be specific about what isn't working</li>
+                        <li><strong>Allow us to mediate:</strong> We'll communicate with the employer to resolve concerns, or shift you to another opportunity</li>
+                        
+                </div>
+            </div>
+            
+            <!-- FAQ Item 10 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How can I verify job opportunities posted by KATS?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>To verify any job opportunity from KATS Unemployment Solutions:</p>
+                    <ul>
+                        <li>Check our official website (www.katsunemploymentsolnsug.com) for listed opportunities</li>
+                        
+                        <li>Call our verified phone numbers (+256 709 787 173 or +256 786 765 307)</li>
+                      
+                        <li>Never pay any application fees</li>
+                    </ul>
+                    <p>We take fraud prevention seriously and encourage candidates to verify all opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>Our team is ready to assist you with any additional questions or concerns.</p>
+            <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Contact Us</a>
+            <a href="tel:+256709787173" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--dark); color: white; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+               
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+            
+          
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                
+            </div>
+            
+            <p style="color: rgba(255,255,255,0.7);">&copy; 2025 KATS Unemployment Solutions Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // FAQ Accordion Functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // FAQ Category Filtering
+        const faqCategories = document.querySelectorAll('.faq-category');
+        
+        faqCategories.forEach(category => {
+            category.addEventListener('click', () => {
+                faqCategories.forEach(c => c.classList.remove('active'));
+                category.classList.add('active');
+                // Filter functionality would be implemented here
+            });
+        });
+        
+        // FAQ Search Functionality
+        const faqSearch = document.querySelector('.faq-search input');
+        const faqSearchBtn = document.querySelector('.faq-search button');
+        
+        faqSearchBtn.addEventListener('click', searchFAQs);
+        faqSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchFAQs();
+        });
+        
+        function searchFAQs() {
+            const searchTerm = faqSearch.value.toLowerCase();
+            // Search functionality would be implemented here
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

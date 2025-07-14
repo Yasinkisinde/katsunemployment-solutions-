@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Opportunities | KATS Unemployment Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2a5bd7;
+            --primary-dark: #1a4abf;
+            --secondary: #f8f9fa;
+            --dark: #343a40;
+            --light: #ffffff;
+            --accent: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background-color: rgb(40, 202, 7);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            border: 2px solid rgb(40, 202, 7);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        /* Careers Page Specific Styles */
+        .careers-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('careers2.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+        
+        .careers-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .careers-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .job-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-img img {
+            transform: scale(1.1);
+        }
+        
+        .category-content {
+            padding: 20px;
+        }
+        
+        .category-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .category-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .job-listings {
+            margin-top: 50px;
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .job-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        
+        .job-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .job-details {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .job-details h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .job-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .job-meta i {
+            margin-right: 5px;
+        }
+        
+        .job-actions {
+            margin-left: auto;
+        }
+        
+        .search-filter {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .search-filter form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .search-filter input, 
+        .search-filter select {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .search-filter button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .search-filter button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .pagination a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .pagination a:hover:not(.active) {
+            background: #f1f1f1;
+        }
+        
+        .testimonials {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 15px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="kats10.png" style="color: var(--primary);" width="100" height="100" alt="KATS Logo">
+                <h1>KATS UNEMPLOYMENT<span> SOLNS UG</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html"  STYLE="color: rgb(252, 7, 7)">Services</a></li>
+                    <li><a href="carriers.html"   STYLE="color: rgb(252, 7, 7)">Careers</a></li>
+                    <li><a href="faq.html" STYLE="color: rgb(7, 23, 245)">FAQS</a></li>
+                    <li><a href="about.html" STYLE="color: rgb(7, 23, 245)">About</a></li>
+                    <li><a href="contact.html"  STYLE="color: rgb(40, 202, 7)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Careers Hero Section -->
+    <section class="careers-hero">
+        <div class="container">
+            <h1>Find Your Dream Job in Uganda</h1>
+            <p>Browse through hundreds of job opportunities across various industries and take the next step in your career journey with KATS Unemployment Solutions.</p>
+            <a href="employer.html" class="btn btn-primary">POST A  JOB</a>
+            <a href="Form submit.html" class="btn btn-outline">Register as Candidate</a>
+        </div>
+    </section>
+
+    <!-- Popular Job Categories -->
+    <section class="container">
+        <div class="section-title">Popular Job Categories</div>
+        <p class="section-subtitle">Explore opportunities in Uganda's most in-demand sectors</p>
+        
+        <div class="job-categories">
+            <!-- Healthcare -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="nurse (1).png" alt="Healthcare Jobs">
+                </div>
+                <div class="category-content">
+                    <h3>Healthcare</h3>
+                    <p>Doctors, nurses, pharmacists and other medical professionals needed in hospitals and clinics across Uganda.</p>
+                    <a href="contact.html" class="btn btn-outline">APPLY</a>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="kats8.jpg" alt="Education Jobs">
+                </div>
+                <div class="category-content">
+                    <h3>Education</h3>
+                    <p>Teachers, lecturers and education administrators for schools and universities throughout Uganda.</p>
+                    <a href="contact.html" class="btn btn-outline">APPLY</a>
+                </div>
+            </div>
+            
+            <!-- IT & Technology -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="kats20.jpg" alt="IT Jobs">
+                </div>
+                <div class="category-content">
+                    <h3>IT & Technology</h3>
+                    <p>Software developers, IT support, network engineers and other tech roles in Uganda's growing digital economy.</p>
+                    <a href="contact.html" class="btn btn-outline">APPLY</a>
+                </div>
+            </div>
+            
+            <!-- Hospitality -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="kats9.jpg" alt="Hospitality Jobs">
+                </div>
+                <div class="category-content">
+                    <h3>Hospitality</h3>
+                    <p>Hotel staff, chefs, waiters and tourism professionals for Uganda's vibrant hospitality industry.</p>
+                    <a href="contact.html" class="btn btn-outline">APPLY</a>
+                </div>
+            </div>
+            
+            <!-- Finance & Accounting -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="account.jpg" alt="Finance Jobs">
+                </div>
+                <div class="category-content">
+                    <h3>Finance & Accounting</h3>
+                    <p>Accountants, auditors, financial analysts and banking professionals for Uganda's financial sector.</p>
+                    <a href="contact.html" class="btn btn-outline">APPLY</a>
+                </div>
+            </div>
+            
+            <!-- Construction -->
+            <div class="category-card">
+                <div class="category-img">
+                    <img src="construct.jpg" alt="Construction Jobs">
+                </div>
+                <div class="category-content">
+                    <h3>Construction</h3>
+                    <p>Engineers, architects, project managers and skilled laborers for Uganda's construction boom.</p>
+                    <a href="contact.html" class="btn btn-outline">APPLY</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        
+        <div class="job-listings">
+            <!-- Job 1 -->
+            <div class="job-card">
+                <div class="job-img">
+                    <img src="shop.jpg" alt="Medical Doctor">
+                </div>
+                <div class="job-details">
+                    <h3>super market  attendant</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-hospital"></i> kawempe bombo road</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kampala</span>
+                        <span><i class="fas fa-clock"></i> Full-time</span>
+                        <span><i class="fas fa-money-bill-wave"></i> 300,000 UGX/month</span>
+                    </div>
+                    <p>Seeking for a sapermarket attendant with at least 6 months  experience to join us at kawempe</p>
+                </div>
+                <div class="job-actions">
+                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Job 2 -->
+            <div class="job-card">
+                <div class="job-img">
+                    <img src="delivery.jpg" alt="Secondary Teacher">
+                </div>
+                <div class="job-details">
+                    <h3>Delivery man</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-school"></i> GEenuine HOOTEL</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kampala</span>
+                        <span><i class="fas fa-clock"></i> Full-time</span>
+                        <span><i class="fas fa-money-bill-wave"></i> 400000 UGX/month</span>
+                    </div>
+                    <p>Looking for  a delivery msan with a driving permit to akke deliveries for to clients</p>
+                </div>
+                <div class="job-actions">
+                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Job 3 -->
+            <div class="job-card">
+                <div class="job-img">
+                    <img src="bar.jpg" alt="Software Developer">
+                </div>
+                <div class="job-details">
+                    <h3>Bar woman</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-laptop-code"></i> SACHI BAR LOUNGE</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kampala (Remote possible)</span>
+                        <span><i class="fas fa-clock"></i> Full-time</span>
+                        <span><i class="fas fa-money-bill-wave"></i> 4500000 UGX/month</span>
+                    </div>
+                    <p>We are looking for a good looking lady  to accomodate our clients with beverage</p>
+                </div>
+                <div class="job-actions">
+                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Job 4 -->
+            <div class="job-card">
+                <div class="job-img">
+                    <img src="maid.png" alt="Hotel Manager">
+                </div>
+                <div class="job-details">
+                    <h3>Maid</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-hotel"></i> Nansana</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kampala</span>
+                        <span><i class="fas fa-clock"></i> Full-time</span>
+                        <span><i class="fas fa-money-bill-wave"></i> 200000</span>
+                    </div>
+                    <p>we needa goo hearted woman beloew 25 years of age to take care of our kids.</p>
+                </div>
+                <div class="job-actions">
+                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Job 5 -->
+            <div class="job-card">
+                <div class="job-img">
+                    <img src="driver.jpg" alt="Accountant">
+                </div>
+                <div class="job-details">
+                    <h3>Driver</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-building"></i> Uganda Revenue Authority</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Kampala</span>
+                        <span><i class="fas fa-clock"></i> Full-time</span>
+                        <span><i class="fas fa-money-bill-wave"></i> 600000UGX/month</span>
+                    </div>
+                    <p>Personal driver urgently needed to  work in the surburbs of kampala with a working permit </p>
+                </div>
+                <div class="job-actions">
+                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Job 6 -->
+            <div class="job-card">
+                <div class="job-img">
+                    <img src="plumber.jpg" alt="Civil Engineer">
+                </div>
+                <div class="job-details">
+                    <h3>PLUMBER</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-hard-hat"></i> China Communications Construction</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Entebbe</span>
+                        <span><i class="fas fa-clock"></i> Full-time</span>
+                        <span><i class="fas fa-money-bill-wave"></i> 300000 UGX/month</span>
+                    </div>
+                    <p>Plumber with experience of one year for major infrastructure project.</p>
+                </div>
+                <div class="job-actions">
+                    <a href="contact.html" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <a href="Form submit.html">&laquo;</a>
+            <a href="Form submit.html" class="active">1</a>
+            <a href="Form submit.html">2</a>
+            <a href="Form submit.html">3</a>
+            <a href="Form submit.html">4</a>
+            <a href="Form submit.html">5</a>
+            <a href="Form submit.html">&raquo;</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+       
+         <div class="container">
+            <div class="section-title" style="color: white;">Success Stories</div>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">What our candidates say about us</p>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "KATS Unemployment Solutions helped me find my dream job as a nurse at Mulago Hospital. Their team was professional and supportive throughout the entire process. I would recommend their services to anyone looking for employment in Uganda."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="sarah.jpg" alt="Sarah K.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah K.</h4>
+                        <p>Registered Nurse at Mulago Hospital</p>
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+        </div> 
+
+ <div class="container">
+           
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "I was struggling to find a job in my field for months untill i found katsunemployment solutions.within two weeks they matched me with a perfect role at Genuine hotel kampala.Today am thriving in my career. Thanks to  their expertise"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="chef.png" alt="Sarah K.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Nankya T.</h4>
+                        <p>Chef at Genuine Hotel</p>
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+        </div>
+
+<div class="container">
+           
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "After years in industry, i wanted a caeer change but didnt know where to start. kats unemployment solutions guided me through upskilling and connected me with  the employer who valued my tranferable skills. now i love my role"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="officer.jpg" alt="Sarah K.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Edrine M.</h4>
+                        <p>Production Officer Sams Food Industry</p>
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+        </div>
+
+<div class="container">
+           
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "I thank kats unemploymlent solutions for securing me my dream career after a long time of seeking for the opportunity but failed"
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="kats20.jpg" alt="Sarah K.">
+                    </div>
+                    <div class="author-info">
+                        <h4>JAMIL S</h4>
+                        <p>IT officer</p>
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+        </div>
+
+<div class="container">
+           
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "I had challenges as a delivery man to find a right employer with favourable working conditions untill i coperated with kats unemployment solutions.I was established to a  secure company that transformed my entire life "
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="glovo.jpg" alt="Sarah K.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Okello D.</h4>
+                        <p>Delivery Person GLOVO</p>
+                    </div>
+                </div>
+
+
+
+                
+            </div>
+        </div>
+
+
+        
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Take the Next Step in Your Career?</h2>
+            <p>Register with KATS Unemployment Solutions today and get matched with the best job opportunities in Uganda.</p>
+            <a href="Form submit.html" class="btn btn-primary">Register Now</a>
+            <a href="contact.html" class="btn btn-outline">Contact Our Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--dark); color: white; padding: 40px 0; text-align: center;">
+        <div class="container">
+            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+            
+                <h1 style="color: white;">KATS UNEMPLOYMENT<span style="color: var(--accent);"> SOLNS UG</span></h1>
+            </div>
+            
+           
+            
+            <p style="color: rgba(255,255,255,0.7);">&copy; 2025 KATS Unemployment Solutions Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
